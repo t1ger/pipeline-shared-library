@@ -37,7 +37,7 @@ This is only used as an example. Adapt and add new classes according to your nee
     │   └── MaintainerTest.groovy (example unit test class)
     └── vars                      (your shared library classes goes here)
         └── maintainer.groovy     (logic for your custom method - filename to match Jenkins pipeline step name)
-        |__ pipeline.groovy
+        |__ build.groovy
 
 Example usage in a Jenkins Script pipeline:
 ```
@@ -69,7 +69,7 @@ node('109'){
                 map.put('TARGET_NAME','')
                 map.put('TARGET_USER','')
                 map.put('EMAIL','')
-                pipeline(map)
+                build(map)
 }
 ```
 Considerations
@@ -79,7 +79,7 @@ requiring repetitive pipeline configurations for each project. So instead of eac
 such as in the example above, the pipeline itself can be extracted to a pipeline method (residing in the _vars_ directory).
 
 Example:
-```vars/pipeline.groovy```
+```vars/build.groovy```
 
 ```
 #!groovy
